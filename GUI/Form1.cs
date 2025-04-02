@@ -1,4 +1,5 @@
 ﻿using GUI.Autenticacion;
+using GUI.Clientes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,10 +21,17 @@ namespace GUI
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+            //Login login = new Login();
+            //login.Show();
 
-            this.Hide();
+            //this.Hide();
+            Application.Exit();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCliente objCliente = new FormCliente();
+            objCliente.ShowDialog();
         }
     }
 }

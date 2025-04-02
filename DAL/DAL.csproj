@@ -61,6 +61,10 @@
     <Compile Include="Migrations\202503190126333_Initial-Catalog.Designer.cs">
       <DependentUpon>202503190126333_Initial-Catalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202504020029421_Agregar_Usuarios_y_Roles.cs" />
+    <Compile Include="Migrations\202504020029421_Agregar_Usuarios_y_Roles.Designer.cs">
+      <DependentUpon>202504020029421_Agregar_Usuarios_y_Roles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202503190126333_Initial-Catalog.resx">
       <DependentUpon>202503190126333_Initial-Catalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504020029421_Agregar_Usuarios_y_Roles.resx">
+      <DependentUpon>202504020029421_Agregar_Usuarios_y_Roles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

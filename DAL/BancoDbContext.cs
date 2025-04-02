@@ -32,6 +32,9 @@ namespace DAL
         public virtual DbSet<TipoCuenta> TipoCuentas { get; set; }
         public virtual DbSet<TipoTransaccion> TipoTransacciones { get; set; }
         public virtual DbSet<Transaccion> Transacciones { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Rol> Roles { get; set; } 
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -52,6 +55,17 @@ namespace DAL
                 .HasRequired(c => c.Estado)
                 .WithMany()
                 .HasForeignKey(c => c.IdEstado)
+                .WillCascadeOnDelete(false);
+
+            // Deshabilitar valor requerido en fk de Usuario para Empleado y Cliente
+            modelBuilder.Entity<Usuario>()
+                .HasOptional(u => u.Cliente)
+                .WithOptionalDependent()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Usuario>()
+                .HasOptional(u => u.Empleado)
+                .WithOptionalDependent()
                 .WillCascadeOnDelete(false);
         }
     }
