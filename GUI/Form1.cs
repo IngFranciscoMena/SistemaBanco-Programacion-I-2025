@@ -1,5 +1,6 @@
 ﻿using GUI.Autenticacion;
 using GUI.Clientes;
+using GUI.Cuentas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,12 @@ namespace GUI
         {
             FormCliente objCliente = new FormCliente();
             objCliente.ShowDialog();
+        }
+
+        private void cuentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCuenta objCuenta = new FormCuenta();
+            objCuenta.ShowDialog();
         }
     }
 }

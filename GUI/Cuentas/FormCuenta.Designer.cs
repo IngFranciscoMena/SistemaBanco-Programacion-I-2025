@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCuenta));
             this.panelConfig = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -38,6 +39,10 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panelForm = new System.Windows.Forms.Panel();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,13 +50,25 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.bsCuentas = new System.Windows.Forms.BindingSource(this.components);
+            this.bsClientes = new System.Windows.Forms.BindingSource(this.components);
+            this.bsTipoCuentas = new System.Windows.Forms.BindingSource(this.components);
+            this.bsEstados = new System.Windows.Forms.BindingSource(this.components);
+            this.idCuentasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idTipoCuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoCuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saldoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEstadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCuentas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTipoCuentas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEstados)).BeginInit();
             this.SuspendLayout();
             // 
             // panelConfig
@@ -73,7 +90,18 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idCuentasDataGridViewTextBoxColumn,
+            this.idClienteDataGridViewTextBoxColumn,
+            this.clienteDataGridViewTextBoxColumn,
+            this.idTipoCuentaDataGridViewTextBoxColumn,
+            this.tipoCuentaDataGridViewTextBoxColumn,
+            this.saldoDataGridViewTextBoxColumn,
+            this.idEstadoDataGridViewTextBoxColumn,
+            this.estadoDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bsCuentas;
             this.dataGridView1.Location = new System.Drawing.Point(10, 98);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -154,6 +182,52 @@
             this.panelForm.Size = new System.Drawing.Size(779, 185);
             this.panelForm.TabIndex = 2;
             // 
+            // comboBox3
+            // 
+            this.comboBox3.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsCuentas, "IdEstado", true));
+            this.comboBox3.DataSource = this.bsEstados;
+            this.comboBox3.DisplayMember = "Nombre";
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(532, 90);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(138, 26);
+            this.comboBox3.TabIndex = 14;
+            this.comboBox3.ValueMember = "IdEstado";
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsCuentas, "Saldo", true));
+            this.textBox1.Location = new System.Drawing.Point(92, 90);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(114, 24);
+            this.textBox1.TabIndex = 13;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsCuentas, "IdTipoCuenta", true));
+            this.comboBox2.DataSource = this.bsTipoCuentas;
+            this.comboBox2.DisplayMember = "Nombre";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(532, 39);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(197, 26);
+            this.comboBox2.TabIndex = 12;
+            this.comboBox2.ValueMember = "IdTipoCuenta";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsCuentas, "IdCliente", true));
+            this.comboBox1.DataSource = this.bsClientes;
+            this.comboBox1.DisplayMember = "Nombre";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(92, 39);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(235, 26);
+            this.comboBox1.TabIndex = 11;
+            this.comboBox1.ValueMember = "IdCliente";
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(654, 142);
@@ -222,36 +296,83 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Datos Cuenta";
             // 
-            // comboBox1
+            // bsCuentas
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(92, 39);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(235, 26);
-            this.comboBox1.TabIndex = 11;
+            this.bsCuentas.DataSource = typeof(EL.Cuenta);
             // 
-            // comboBox2
+            // bsClientes
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(532, 39);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(197, 26);
-            this.comboBox2.TabIndex = 12;
+            this.bsClientes.DataSource = typeof(EL.Cliente);
             // 
-            // textBox1
+            // bsTipoCuentas
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(114, 24);
-            this.textBox1.TabIndex = 13;
+            this.bsTipoCuentas.DataSource = typeof(EL.TipoCuenta);
             // 
-            // comboBox3
+            // bsEstados
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(532, 90);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(138, 26);
-            this.comboBox3.TabIndex = 14;
+            this.bsEstados.DataSource = typeof(EL.Estado);
+            // 
+            // idCuentasDataGridViewTextBoxColumn
+            // 
+            this.idCuentasDataGridViewTextBoxColumn.DataPropertyName = "IdCuentas";
+            this.idCuentasDataGridViewTextBoxColumn.HeaderText = "N. Cuentas";
+            this.idCuentasDataGridViewTextBoxColumn.Name = "idCuentasDataGridViewTextBoxColumn";
+            this.idCuentasDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idCuentasDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idClienteDataGridViewTextBoxColumn
+            // 
+            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "IdCliente";
+            this.idClienteDataGridViewTextBoxColumn.HeaderText = "IdCliente";
+            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
+            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idClienteDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // clienteDataGridViewTextBoxColumn
+            // 
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clienteDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // idTipoCuentaDataGridViewTextBoxColumn
+            // 
+            this.idTipoCuentaDataGridViewTextBoxColumn.DataPropertyName = "IdTipoCuenta";
+            this.idTipoCuentaDataGridViewTextBoxColumn.HeaderText = "IdTipoCuenta";
+            this.idTipoCuentaDataGridViewTextBoxColumn.Name = "idTipoCuentaDataGridViewTextBoxColumn";
+            this.idTipoCuentaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idTipoCuentaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // tipoCuentaDataGridViewTextBoxColumn
+            // 
+            this.tipoCuentaDataGridViewTextBoxColumn.DataPropertyName = "TipoCuenta";
+            this.tipoCuentaDataGridViewTextBoxColumn.HeaderText = "TipoCuenta";
+            this.tipoCuentaDataGridViewTextBoxColumn.Name = "tipoCuentaDataGridViewTextBoxColumn";
+            this.tipoCuentaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipoCuentaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // saldoDataGridViewTextBoxColumn
+            // 
+            this.saldoDataGridViewTextBoxColumn.DataPropertyName = "Saldo";
+            this.saldoDataGridViewTextBoxColumn.HeaderText = "Saldo";
+            this.saldoDataGridViewTextBoxColumn.Name = "saldoDataGridViewTextBoxColumn";
+            this.saldoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idEstadoDataGridViewTextBoxColumn
+            // 
+            this.idEstadoDataGridViewTextBoxColumn.DataPropertyName = "IdEstado";
+            this.idEstadoDataGridViewTextBoxColumn.HeaderText = "IdEstado";
+            this.idEstadoDataGridViewTextBoxColumn.Name = "idEstadoDataGridViewTextBoxColumn";
+            this.idEstadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idEstadoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "Estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FormCuenta
             // 
@@ -262,12 +383,17 @@
             this.Controls.Add(this.panelForm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCuenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Banco XYZ | Administración de Cuentas";
             this.panelConfig.ResumeLayout(false);
             this.panelConfig.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelForm.ResumeLayout(false);
             this.panelForm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCuentas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTipoCuentas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEstados)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -294,5 +420,17 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.BindingSource bsCuentas;
+        private System.Windows.Forms.BindingSource bsClientes;
+        private System.Windows.Forms.BindingSource bsTipoCuentas;
+        private System.Windows.Forms.BindingSource bsEstados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCuentasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idTipoCuentaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoCuentaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saldoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEstadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
     }
 }
