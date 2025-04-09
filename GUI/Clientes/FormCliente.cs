@@ -56,11 +56,13 @@ namespace GUI.Clientes
 
                 if (resultado > 0)
                 {
-
+                    MessageBox.Show("El cliente ha sido registrado con exito!",
+                        "Banco XYZ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-
+                    MessageBox.Show("Ocurrio un error en el registro del cliente!",
+                        "Banco XYZ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 CargarClientes();
