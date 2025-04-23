@@ -1,0 +1,51 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<style>
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card-header img{
+        width: 35%;
+        margin-bottom: 10px;
+    }
+
+    .card-body input{
+        min-width: 100%;
+    }
+</style>
+
+<div class="container">
+    <div class="card shadow">
+        <div class="card-header text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/12123/12123009.png" 
+                 alt="Imágen de inicio de sesión"
+                 class="card-img-top"/>
+            <h3 class="card card-subtitle"> Inicio de sesión</h3>
+        </div>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="card-body">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="correo">
+                    <label for="floatingInput">Correo Electronico</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="contraseña">
+                    <label for="floatingPassword">Contraseña</label>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                </div>
+            </div>
+        }
+        
+    </div>
+</div>
