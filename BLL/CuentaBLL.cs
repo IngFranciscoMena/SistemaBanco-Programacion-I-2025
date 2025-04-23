@@ -28,5 +28,23 @@ namespace BLL
         {
             return _cuentaDAL.Guardar(cuenta, id, esActualizacion);
         }
+
+        public decimal ObtenerSaldoTotalPorCliente(int idCliente)
+        {
+            var cuentas = _cuentaDAL.ObtenerCuentas();
+
+            decimal total = cuentas.Where(c => c.IdCliente.Equals(idCliente)).Sum(s => s.Saldo);
+
+            return total;
+        }
+
+        public List<Cuenta> ObtenerCuentasActivasPorCliente(int idCliente)
+        {
+            var cuentas = _cuentaDAL.ObtenerCuentas();
+
+            var cuentasActivas = cuentas.Where(c => c.IdCliente.Equals(idCliente) && c.Estado.Nombre.Equals("Activa")).ToList();
+
+            return cuentasActivas;
+        }
     }
 }
