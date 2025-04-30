@@ -67,6 +67,38 @@ namespace DAL
             }
         }
 
+        // Read One
+        public Cliente ObtenerClientePorId(int id)
+        {
+            try
+            {
+                return _db.Clientes.Find(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         // Delete
+        public int EliminarCliente(Cliente cliente)
+        {
+            try
+            {
+                int resultado = 0;
+
+                _db.Clientes.Remove(cliente);
+                _db.SaveChanges();
+
+                resultado = cliente.IdCliente;
+
+                return resultado;
+            }
+            catch (Exception) 
+            {
+                throw; 
+            }
+        }
     }
 }
