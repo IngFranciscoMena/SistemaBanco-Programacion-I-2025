@@ -17,7 +17,7 @@ namespace UI.Controllers
             _cuentasBLL = new CuentaBLL();
             _transaccionesBLL = new TransaccionBLL();
 
-            int idCliente = 3;
+            int idCliente = int.Parse(Session["ClienteId"].ToString());
 
             // Obtener Saldo Total de las Cuentas
             decimal saldo = _cuentasBLL.ObtenerSaldoTotalPorCliente(idCliente);

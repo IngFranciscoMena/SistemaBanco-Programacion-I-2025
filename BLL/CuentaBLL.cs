@@ -46,5 +46,19 @@ namespace BLL
 
             return cuentasActivas;
         }
+
+        public Cuenta ObtenerCuentaPorId(int id)
+        {
+            return _cuentaDAL.ObtenerCuentaPorId(id);
+        }
+
+        public decimal ObtenerSaldoTotalDeLasCuentas()
+        {
+            var cuentas = _cuentaDAL.ObtenerCuentas();
+
+            decimal total = cuentas.Where(c => c.IdEstado == 1).Sum(s => s.Saldo);
+
+            return total;
+        }
     }
 }

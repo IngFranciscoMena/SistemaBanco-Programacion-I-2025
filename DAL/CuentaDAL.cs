@@ -29,6 +29,19 @@ namespace DAL
             }
         }
 
+        public Cuenta ObtenerCuentaPorId(int id)
+        {
+            try
+            {
+                return _db.Cuentas.Find(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public int Guardar(Cuenta cuenta, int id = 0, bool esActualizacion = false)
         {
             try
@@ -37,7 +50,7 @@ namespace DAL
 
                 if (esActualizacion)
                 {
-                    cuenta.IdTipoCuenta = id;
+                    cuenta.IdCuentas = id;
 
                     _db.Entry(cuenta).State = System.Data.Entity.EntityState.Modified;
                     _db.SaveChanges();

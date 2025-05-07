@@ -1,0 +1,156 @@
+﻿@model List<EL.Transaccion>
+
+<p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#transaccionModal">
+        Nueva Transferencia
+    </button>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Tipo Transacción
+        </th>
+        <th>
+            Monto
+        </th>
+        <th>
+            Cuenta
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoTransaccion.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCuenta)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="transaccionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Nueva Transferencia</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="transaccionForm">
+
+                    <div class="text-center">
+                        <div class="d-flex justify-content-center">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="idCuentas" aria-label="Listado de Cuentas">
+                                    <option selected>Seleccione la cuenta de Origen:</option>
+                                    @foreach (var cuenta in @ViewBag.CuentasActivas)
+                                    {
+                                        <option value="@cuenta.IdCuentas">N# @cuenta.IdCuentas - Saldo: $ @cuenta.Saldo</option>
+                                    }
+                                </select>
+                                <label for="idCuentas">Listado de Cuentas</label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="idCuenta" placeholder="Password">
+                                <label for="idCuenta">Cuenta Destino:</label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="idMonto" placeholder="Password">
+                                <label for="idMonto">Monto:</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-success" id="btnTransferir">Transferir</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#btnTransferir').click(function () {
+            RealizarTransferencia();
+        });
+    });
+
+    function RealizarTransferencia() {;
+        var idOrigen = parseInt($('#idCuentas').val());
+        var idDestino = parseInt($('#idCuenta').val());
+        var monto = parseFloat($('#idMonto').val());
+
+        if (idOrigen === idDestino) {
+            Swal.fire({
+                title: "Advertencia",
+                text: "❌ No se permite la transferencia a la misma cuenta",
+                icon: "error"
+            });
+
+            return;
+        }
+
+        $.ajax({
+            url: "@Url.Action("CrearTransaccion", "Transaccion")",
+            type: "POST",
+            data: { idOrigen, idDestino, monto },
+            dataType: "json",
+            success: function (response) {
+
+                if (response.success) {
+                    Swal.fire({
+                        title: "Exito",
+                        text: response.message,
+                        icon: "success"
+                    });
+                } else {
+                    Swal.fire({
+                        title: "Error",
+                        text: response.message,
+                        icon: "error"
+                    });
+                }
+
+                // Recargue la pagina automaticamente después de 3 segundos
+                setTimeout(function () {
+                    location.reload();
+                }, 3000);
+
+            }, error: function (err) {
+
+                console.log(err);
+
+                Swal.fire({
+                    title: "Error",
+                    text: err.message,
+                    icon: "error"
+                });
+            }
+        });
+    }
+</script>

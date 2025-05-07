@@ -36,10 +36,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSaldos = new System.Windows.Forms.Label();
+            this.lblTransacciones = new System.Windows.Forms.Label();
+            this.lblCuentas = new System.Windows.Forms.Label();
+            this.lblClientes = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -82,10 +82,10 @@
             // 
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblSaldos);
+            this.panel1.Controls.Add(this.lblTransacciones);
+            this.panel1.Controls.Add(this.lblCuentas);
+            this.panel1.Controls.Add(this.lblClientes);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 33);
             this.panel1.Name = "panel1";
@@ -109,41 +109,41 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "📊 Transacciones Recientes 🔃";
             // 
-            // label4
+            // lblSaldos
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(391, 94);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(276, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "✅ Saldo total de todas las cuentas 💵";
+            this.lblSaldos.AutoSize = true;
+            this.lblSaldos.Location = new System.Drawing.Point(391, 94);
+            this.lblSaldos.Name = "lblSaldos";
+            this.lblSaldos.Size = new System.Drawing.Size(276, 20);
+            this.lblSaldos.TabIndex = 3;
+            this.lblSaldos.Text = "✅ Saldo total de todas las cuentas 💵";
             // 
-            // label3
+            // lblTransacciones
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(391, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(266, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "✅ Total de Transacciones del Día 📊";
+            this.lblTransacciones.AutoSize = true;
+            this.lblTransacciones.Location = new System.Drawing.Point(391, 37);
+            this.lblTransacciones.Name = "lblTransacciones";
+            this.lblTransacciones.Size = new System.Drawing.Size(266, 20);
+            this.lblTransacciones.TabIndex = 2;
+            this.lblTransacciones.Text = "✅ Total de Transacciones del Día 📊";
             // 
-            // label2
+            // lblCuentas
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(245, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "✅ Total de Cuentas Bancarias 🗃️";
+            this.lblCuentas.AutoSize = true;
+            this.lblCuentas.Location = new System.Drawing.Point(35, 94);
+            this.lblCuentas.Name = "lblCuentas";
+            this.lblCuentas.Size = new System.Drawing.Size(245, 20);
+            this.lblCuentas.TabIndex = 1;
+            this.lblCuentas.Text = "✅ Total de Cuentas Bancarias 🗃️";
             // 
-            // label1
+            // lblClientes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(222, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "✅ Total de Clientes Activos 📊";
+            this.lblClientes.AutoSize = true;
+            this.lblClientes.Location = new System.Drawing.Point(35, 37);
+            this.lblClientes.Name = "lblClientes";
+            this.lblClientes.Size = new System.Drawing.Size(222, 20);
+            this.lblClientes.TabIndex = 0;
+            this.lblClientes.Text = "✅ Total de Clientes Activos 📊";
             // 
             // Form1
             // 
@@ -175,10 +175,10 @@
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuentasToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSaldos;
+        private System.Windows.Forms.Label lblTransacciones;
+        private System.Windows.Forms.Label lblCuentas;
+        private System.Windows.Forms.Label lblClientes;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
     }
